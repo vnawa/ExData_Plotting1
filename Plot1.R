@@ -1,0 +1,7 @@
+EPC <- read.table("household_power_consumption.txt", header=TRUE,sep=";")
+EPC1<-subset(EPC,Date=="1/2/2007")
+EPC2<-subset(EPC,Date=="2/2/2007")
+EPC3<-rbind(EPC1,EPC2)
+dev.off()
+png(file="Plot1.png")
+with(EPC3,hist(as.numeric(Global_active_power),xlab="Global Active Power (kilowatts)", col="red",main="Global Active Power"))
